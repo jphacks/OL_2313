@@ -26,8 +26,16 @@
 
 .upload-body input[type="text"] {
   padding: 10px;
-  border: 1px solid #e6e6e6;
+  border: 0px solid #dddddd;
   border-radius: 5px;
+  border-bottom: 2px solid #afafaf;
+  text-align: left;
+  width: 50%;
+}
+
+.upload-body input[type="sentence"] {
+  padding: 10px;
+  width: 50%;
 }
 
 .image-placeholder {
@@ -35,7 +43,7 @@
   justify-content: center;
   align-items: center;
   height: 300px;
-  border: 1px dashed #e6e6e6;
+  border: 2px dashed #e6e6e6;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -45,16 +53,6 @@
   height: auto;
 }
 
-/* button { 
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #3897f0;
-  color: #ffffff;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-} */
-
 button:hover {
-  background-color: #357abD;
+  background-color: #5b88b4;
 }
