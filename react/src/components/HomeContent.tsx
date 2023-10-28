@@ -24,7 +24,8 @@ interface Post {
 
 const HomeContent: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>(""); // タグ検索ワード
+  
   const [searchResults, setSearchResults] = useState<Post[]>([]);
 
   const fetchPosts = async () => {
@@ -47,8 +48,10 @@ const HomeContent: React.FC = () => {
 
   const handleSearch = () => {
     const results = posts.filter((post) =>
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.tags.some((tag) => tag.includes(searchTerm))
     );
+
     setSearchResults(results);
   };
 
@@ -59,13 +62,13 @@ const HomeContent: React.FC = () => {
   return (
     <div className="home-content">
       <div>
-        <input
+        <input className="text-input"
           type="text"
           placeholder="検索ワードを入力"
           value={searchTerm} // 追加: 検索ワードを表示
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button onClick={handleSearch}>検索</button>
+        <button className="text-button" onClick={handleSearch}>検索</button>
       </div>
       {searchTerm !== "" ? (
         // 検索結果を表示
@@ -74,7 +77,7 @@ const HomeContent: React.FC = () => {
             <img src={post.imageUrl} alt={post.title} className="post-image" />
             <div className="post-details">
               <h3>{post.title}</h3>
-              <button onClick={() => handleLike(post.id!)}> {post.likes}</button>
+              <button  className="text-button" onClick={() => handleLike(post.id!)}> {post.likes}</button>
               <div className="post-tags">
                 {post.tags.map((tag, tagIndex) => (
                   <span key={tagIndex} className="tag">
@@ -95,7 +98,7 @@ const HomeContent: React.FC = () => {
             <img src={post.imageUrl} alt={post.title} className="post-image" />
             <div className="post-details">
               <h3>{post.title}</h3>
-              <button onClick={() => handleLike(post.id!)}> {post.likes}</button>
+              <button  className="text-button" onClick={() => handleLike(post.id!)}> {post.likes}</button>
               <div className="post-tags">
                 {post.tags.map((tag, tagIndex) => (
                   <span key={tagIndex} className="tag">
