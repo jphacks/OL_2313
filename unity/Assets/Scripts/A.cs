@@ -13,7 +13,7 @@ public class A: MonoBehaviour
     {
         
         var db = FirebaseFirestore.DefaultInstance;
-        DocumentReference docRef = db.Collection("your-collection").Document("9dCElJJKwkI8uUZf8nJ9");
+        DocumentReference docRef = db.Collection("your-collection").Document("dltVP7tmo5RFJYDw8iOB");
         docRef.GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
             DocumentSnapshot snapshot = task.Result;
@@ -23,8 +23,8 @@ public class A: MonoBehaviour
                 Dictionary<string, object> city = snapshot.ToDictionary();
                 foreach (KeyValuePair<string, object> pair in city)
                 {
-                    AAA=String.Format("{1}", pair.Key, pair.Value);
-                    Debug.Log(AAA);
+                    AAA=String.Format("{1}",pair.Key, pair.Value);
+                Debug.Log(AAA);
                 }
             }
             else
