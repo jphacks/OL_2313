@@ -70,7 +70,7 @@ button {
   width: 40%;
 }
 
-button:hover {
+#upload-button:hover {
   background-color: #ff9100;
   color: #ffffff;
 }

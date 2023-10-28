@@ -116,9 +116,8 @@ const UploadContent: React.FC = () => {
           value={recipeBackground}
           onChange={(e) => setRecipeBackground(e.target.value)}
         />
-        <button onClick={handleUpload} disabled={isUploadDisabled}>
-          アップロード
-        </button>
+        <button id="upload-button" onClick={handleUpload}>アップロード</button>
+
       </div>
     </div>
   );
