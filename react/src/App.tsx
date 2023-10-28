@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import TodoList from './components/TodoList';
-import MyComponent from './components/MyComponent';
+import './App.css';
+import ReactDOM from 'react-dom/client';
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import TabBar from './components/TabBar';
 import HomeContent from './components/HomeContent'; 
 import UploadContent from './components/UploadContent';
 import ArchiveContent from './components/ArchiveContent';
 import Header from './components/Header';
-
-import './App.css';
 import UnityContent from './components/UnityContent';
+import DetailOfArchive from './components/DetailOfArchive';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -18,18 +18,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <BrowserRouter>
       <Header/>
-      <TabBar onTabChange={handleTabChange} />
-     
-      {/* タブに応じてコンテンツを切り替え */}
-      {activeTab === 'home' && <HomeContent />}
-      {activeTab === 'Upload' && <UploadContent />}
-      {activeTab === 'Archive' && <ArchiveContent />}
-      {activeTab === 'Unity' && <UnityContent />}
-      
-      
-    </div>
+        <Switch>
+          <Route exact path="/" component={HomeContent} />
+          <Route path="/Upload" component={UploadContent} />
+          <Route path="/Archive" component={ArchiveContent} />
+          <Route path="/Unity" component={UnityContent} />
+          <Route exact path="/DetailOfArchive" component={DetailOfArchive} />
+          <Route render={() => <p>not found!.</p>} />
+        </Switch>
+        <TabBar onTabChange={handleTabChange} />
+    </BrowserRouter>
   ); 
 };
 

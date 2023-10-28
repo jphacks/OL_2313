@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
-import { getDocs, collection, getDoc, updateDoc, doc, Timestamp, Query, query, orderBy } from "firebase/firestore";
+import {
+  getDocs,
+  collection,
+  getDoc,
+  updateDoc,
+  doc,
+  Timestamp,
+  Query,
+  query,
+  orderBy,
+} from "firebase/firestore";
 import "./HomeContent.css";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 interface Post {
   id?: string;
@@ -14,6 +25,9 @@ interface Post {
 
 const HomeContent: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>(""); // タグ検索ワード
+  
+  const [searchResults, setSearchResults] = useState<Post[]>([]);
 
   const fetchPosts = async () => {
     const postQuery: Query = query(collection(db, "your-collection"), orderBy("uploadedAt", "desc"));
@@ -33,32 +47,86 @@ const HomeContent: React.FC = () => {
     }
   };
 
+  const handleSearch = () => {
+    const results = posts.filter((post) =>
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.tags.some((tag) => tag.includes(searchTerm))
+    );
+
+    setSearchResults(results);
+  };
+
   useEffect(() => {
     fetchPosts();
   }, []);
 
+  const handleEnterKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+
   return (
+  <div>
+    <div className="search">
+        <input className="text-input"
+          type="text"
+          placeholder="検索ワードを入力"
+          value={searchTerm} // 追加: 検索ワードを表示
+          onChange={(e) => setSearchTerm(e.target.value)}
+          // 新たに追加: Enter キーを監視して検索を実行
+          onKeyPress={handleEnterKeyPress}
+        />
+        <button id="upload-button" className="text-button" onClick={handleSearch}>検索</button>
+      </div>
     <div className="home-content">
-      {posts.map((post, index) => (
-        <div key={index} className="post">
-          <img src={post.imageUrl} alt={post.title} className="post-image" />
-          <div className="post-details">
-            <h3>{post.title}</h3>
-            <button onClick={() => handleLike(post.id!)}> {post.likes}</button>
-            <div className="post-tags">
-              {post.tags.map((tag, tagIndex) => (
-                <span key={tagIndex} className="tag">
-                  #{tag}
-                </span>
-              ))}
-            </div>
-            <div className="post-timestamp">
-              {post.uploadedAt ? new Date(post.uploadedAt.seconds * 1000).toLocaleString() : "No Timestamp"}
+      
+      {searchTerm !== "" ? (
+        // 検索結果を表示
+        searchResults.map((post, index) => (
+          <div key={index} className="post">
+            <img src={post.imageUrl} alt={post.title} className="post-image" />
+            <div className="post-details">
+              <h3>{post.title}</h3>
+              <button  className="text-button2" onClick={() => handleLike(post.id!)}><FavoriteIcon style={{marginRight: 8}}/> {post.likes}</button>
+              <div className="post-tags">
+                {post.tags.map((tag, tagIndex) => (
+                  <span key={tagIndex} className="tag">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+              <div className="post-timestamp">
+                {post.uploadedAt ? new Date(post.uploadedAt.seconds * 1000).toLocaleString() : "No Timestamp"}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        // タブ切り替えコンテンツ
+        posts.map((post, index) => (
+          <div key={index} className="post">
+            <img src={post.imageUrl} alt={post.title} className="post-image" />
+            <div className="post-details">
+              <h3>{post.title}</h3>
+              <button  className="text-button2" onClick={() => handleLike(post.id!)}><FavoriteIcon style={{marginRight: 8}}/> {post.likes}</button>
+              <div className="post-tags">
+                {post.tags.map((tag, tagIndex) => (
+                  <span key={tagIndex} className="tag">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+              <div className="post-timestamp">
+                {post.uploadedAt ? new Date(post.uploadedAt.seconds * 1000).toLocaleString() : "No Timestamp"}
+              </div>
+            </div>
+          </div>
+        ))
+      )}
     </div>
+  </div>
   );
 };
 
