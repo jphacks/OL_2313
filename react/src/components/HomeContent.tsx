@@ -60,17 +60,28 @@ const HomeContent: React.FC = () => {
     fetchPosts();
   }, []);
 
+  const handleEnterKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+
   return (
-    <div className="home-content">
-      <div>
+  <div>
+    <div className="search">
         <input className="text-input"
           type="text"
           placeholder="検索ワードを入力"
           value={searchTerm} // 追加: 検索ワードを表示
           onChange={(e) => setSearchTerm(e.target.value)}
+          // 新たに追加: Enter キーを監視して検索を実行
+          onKeyPress={handleEnterKeyPress}
         />
-        <button className="text-button" onClick={handleSearch}>検索</button>
+        <button id="upload-button" className="text-button" onClick={handleSearch}>検索</button>
       </div>
+    <div className="home-content">
+      
       {searchTerm !== "" ? (
         // 検索結果を表示
         searchResults.map((post, index) => (
@@ -115,6 +126,7 @@ const HomeContent: React.FC = () => {
         ))
       )}
     </div>
+  </div>
   );
 };
 

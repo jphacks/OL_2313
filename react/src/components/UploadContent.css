@@ -69,7 +69,7 @@
   transition: background-color 0.2s ease;
 } */
 
-button:hover {
+#upload-button:hover {
   background-color: #ff9100;
   color: #ffffff;
 }
