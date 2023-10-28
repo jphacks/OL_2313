@@ -59,7 +59,7 @@
   height: auto;
 }
 
-button { 
+.button-bt { 
   padding: 10px 15px;
   border: solid #ff9100;
   border-radius: 5px;
