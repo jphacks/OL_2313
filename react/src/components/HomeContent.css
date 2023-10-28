@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-bottom: 60px;
-  padding: 80px 16px; /* 両側の余白を追加 */
+  padding: 20px 16px; /* 両側の余白を追加 */
 }
 
 .post {
@@ -94,6 +94,8 @@
   color: inherit;
   font-family: inherit;
   font-size: 1em;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .text-button2{
@@ -101,4 +103,10 @@
   border: none;
   background-color: transparent;
   color: #f15a24;
+}
+
+.search{
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 80px 20px 16px 16px; /* 両側の余白を追加 */
 }

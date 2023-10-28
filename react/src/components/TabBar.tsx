@@ -4,6 +4,7 @@ import './TabBar.css';
 import CottageRoundedIcon from '@mui/icons-material/CottageRounded';
 import AddAPhotoRoundedIcon from '@mui/icons-material/AddAPhotoRounded';
 import AutoStoriesRoundedIcon from '@mui/icons-material/AutoStoriesRounded';
+import PetsIcon from '@mui/icons-material/Pets';
 import { NavLink } from 'react-router-dom';
 
 interface TabBarProps {
@@ -37,7 +38,7 @@ const TabBar: React.FC<TabBarProps> = ({ onTabChange }) => {
         <AutoStoriesRoundedIcon style={{marginRight: 8}}/>
       </NavLink>
       <NavLink to="/Unity" className='tab' activeClassName='active'>
-        Unity
+        <PetsIcon style={{marginRight: 8}}/>
       </NavLink>
       
     </div>
