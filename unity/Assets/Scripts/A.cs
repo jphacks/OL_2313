@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Firebase.Extensions;
 using Firebase.Firestore;
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class FirestoreScript : MonoBehaviour
+public class A: MonoBehaviour
 {
+    public string AAA;
     public void Start()
     {
+        
         var db = FirebaseFirestore.DefaultInstance;
         DocumentReference docRef = db.Collection("your-collection").Document("9dCElJJKwkI8uUZf8nJ9");
         docRef.GetSnapshotAsync().ContinueWithOnMainThread(task =>
@@ -20,7 +23,8 @@ public class FirestoreScript : MonoBehaviour
                 Dictionary<string, object> city = snapshot.ToDictionary();
                 foreach (KeyValuePair<string, object> pair in city)
                 {
-                    Debug.Log(String.Format("{0}: {1}", pair.Key, pair.Value));
+                    AAA=String.Format("{1}", pair.Key, pair.Value);
+                    Debug.Log(AAA);
                 }
             }
             else
