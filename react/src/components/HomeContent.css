@@ -95,3 +95,10 @@
   font-family: inherit;
   font-size: 1em;
 }
+
+.text-button2{
+  font-size: 15px;
+  border: none;
+  background-color: transparent;
+  color: #f15a24;
+}

@@ -12,6 +12,7 @@ import {
   orderBy,
 } from "firebase/firestore";
 import "./HomeContent.css";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 interface Post {
   id?: string;
@@ -77,7 +78,7 @@ const HomeContent: React.FC = () => {
             <img src={post.imageUrl} alt={post.title} className="post-image" />
             <div className="post-details">
               <h3>{post.title}</h3>
-              <button  className="text-button" onClick={() => handleLike(post.id!)}> {post.likes}</button>
+              <button  className="text-button2" onClick={() => handleLike(post.id!)}><FavoriteIcon style={{marginRight: 8}}/> {post.likes}</button>
               <div className="post-tags">
                 {post.tags.map((tag, tagIndex) => (
                   <span key={tagIndex} className="tag">
@@ -98,7 +99,7 @@ const HomeContent: React.FC = () => {
             <img src={post.imageUrl} alt={post.title} className="post-image" />
             <div className="post-details">
               <h3>{post.title}</h3>
-              <button  className="text-button" onClick={() => handleLike(post.id!)}> {post.likes}</button>
+              <button  className="text-button2" onClick={() => handleLike(post.id!)}><FavoriteIcon style={{marginRight: 8}}/> {post.likes}</button>
               <div className="post-tags">
                 {post.tags.map((tag, tagIndex) => (
                   <span key={tagIndex} className="tag">
