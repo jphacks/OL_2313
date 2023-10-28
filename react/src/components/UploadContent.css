@@ -1,7 +1,7 @@
 .upload-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
   padding: 60px 20px;
   border: 1px solid #e6e6e6;
