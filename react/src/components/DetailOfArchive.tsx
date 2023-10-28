@@ -1,51 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { db } from "../firebase";
-import { doc, getDoc } from 'firebase/firestore';
+import { getDocs, collection, getDoc, updateDoc, doc, Timestamp, Query, query, orderBy } from "firebase/firestore";
+
+interface Post {
+  id?: string;
+  title: string;
+  imageUrl: string;
+  tags: string[];
+  likes: number;
+  uploadedAt: Timestamp;
+}
 
 const DetailOfArchive: React.FC = () => {
-  interface RouteParams {
-    postId: string;
-  }
 
-  const { postId } = useParams<RouteParams>();
-  const [detailData, setDetailData] = useState<any>(null);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
 
-  const fetchDetailData = async (postId: string | undefined) => {
-    if (postId) {
-      try {
-        const postDoc = doc(db, 'your-collection', postId);
-        const postSnapshot = await getDoc(postDoc);
-        if (postSnapshot.exists()) {
-          const post = postSnapshot.data();
-          setDetailData(post);
-          console.log('詳細情報:', post);
-        } else {
-          console.log('該当のポストが見つかりません');
-        }
-      } catch (error) {
-        console.error('詳細情報の取得エラー:', error);
-      }
-    } else {
-      console.log('postId が未定義です');
-    }
-  };
+  const postId = searchParams.get("id");
+
+  const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
-    fetchDetailData(postId);
+    if (postId) {
+      // Firebaseから指定のpostIdのデータを取得
+      const postRef = doc(db, "your-collection", postId);
+      
+      getDoc(postRef)
+        .then((docSnapshot) => {
+          if (docSnapshot.exists()) {
+            // データが存在する場合、データを取得
+            setPost({ ...docSnapshot.data(), id: postId } as Post);
+          } else {
+            // データが存在しない場合、エラー処理を行うか、メッセージを表示できます
+            console.log("データが見つかりません");
+          }
+        })
+        .catch((error) => {
+          // エラーハンドリングを行うことも重要です
+          console.error("データの取得中にエラーが発生しました", error);
+        });
+    }
   }, [postId]);
 
   return (
     <div>
-      aaaaaaaa
-      {detailData && (
+      {post ? (
         <div>
-          <h1>ああああ</h1>
-          <img src={detailData.imageUrl} alt={detailData.title} className="post-image" />
-          <p>{detailData.likes}</p>
-          <p>#{detailData.tags}</p>
-          <p>{detailData.uploadedAt? new Date(detailData.uploadedAt.seconds * 1000).toLocaleString() : "No Timestamp"}</p>
+          <h1>{post.title}</h1>
+          <img src={post.imageUrl} alt={post.title} />
+          <p>Tags: {post.tags.join(", ")}</p>
+          <p>Likes: {post.likes}</p>
+          {/* その他の詳細情報を表示 */}
         </div>
+      ) : (
+        <p>データを取得中...</p>
       )}
     </div>
   );
