@@ -3,32 +3,26 @@ using UnityEngine.UI;
 
 public class CharacterImporter : MonoBehaviour
 {
-    public GameObject characterImage;
+    public Image characterImage;
 
     // Start is called before the first frame update
     void Start()
     {
-        // "CatPretty" GameObject を検索
-        GameObject catPrettyObject = GameObject.Find("CatPretty");
-
-        if (catPrettyObject != null)
+        Color color = gameObject.GetComponent<Image>().color;
+        color.a = 0f;
+        gameObject.GetComponent<Image>().color = color;
+    }
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            // "CatPretty" GameObject にアタッチされた Image コンポーネントを取得しようとします
-            Image catPrettyImage = catPrettyObject.GetComponent<Image>();
-
-            if (catPrettyImage != null)
-            {
-                // "characterImage" GameObject を有効にします
-                characterImage.SetActive(true);
-            }
-            else
-            {
-                Debug.LogError("'CatPretty' GameObject 上に Image コンポーネントが見つかりません。");
-            }
-        }
-        else
-        {
-            Debug.LogError("GameObject 'CatPretty' が見つかりません。");
+            Color color = gameObject.GetComponent<Image>().color;
+            color.a = 255.0f;
+            gameObject.GetComponent<Image>().color = color;
         }
     }
+
+
 }
+        
+        

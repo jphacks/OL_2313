@@ -1,25 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NamingBox : MonoBehaviour
 {
-   public InputField inputField;
-    public Text text;
-    // Start is called before the first frame update
-    void Start()
+    public TextMeshProUGUI CharactorName; 
+    TextMeshProUGUI inputField;
+    public void OnClick()
     {
-        inputField = GameObject.Find("NamingBox").GetComponent<InputField>();
-        //text = text.GetComponent<Text>();
+        inputField = this.GetComponentInChildren<TextMeshProUGUI>();
+        Debug.Log(inputField.text);
+        CharactorName.text=inputField.text;
+        CharactorName.color = new Color(233.0f, 203.0f, 177.0f, 255.0f);
     }
 
-    // Update is called once per frame
-   public void GetInputName()
-    {
-        string charactorname = inputField.text;
-        Debug.Log(charactorname);
-
-        //ここにダイアログを消すメソッドを持ってくる
-    }
 }
