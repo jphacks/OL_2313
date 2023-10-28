@@ -58,16 +58,17 @@
   max-width: 100%;
   height: auto;
 }
-button {
-  padding: 5px 35px;
-  border: 2px solid #ff9100;
-  border-radius: px;
-  background-color: #ffffff; /* 赤色に設定 */
-  color: #ff9100; /* テキストの色を白に設定 */
+
+button { 
+  padding: 10px 15px;
+  border: solid #ff9100;; 
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #ff9100;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  width: 50%;
-}
+} 
+
 button:hover {
   background-color: #ff9100;
   color: #ffffff;
