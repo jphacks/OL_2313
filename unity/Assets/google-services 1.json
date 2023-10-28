@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "947695577547",
+    "project_id": "tinpo-7ced3",
+    "storage_bucket": "tinpo-7ced3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947695577547:android:ef27bb37dd8d5eeaad6e4e",
+        "android_client_info": {
+          "package_name": "com.momoyama.JPhacks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd7T7aYHN0fYMRR5OUkSoSeWfJJDJ3bgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
