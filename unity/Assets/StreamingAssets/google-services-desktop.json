@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "510566099055",
+    "project_id": "fir-todo-6b143",
+    "storage_bucket": "fir-todo-6b143.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510566099055:android:42365b9b508e87f8a6c59a",
+        "android_client_info": {
+          "package_name": "com.react.ismet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRnKaII7aO9aCym7SSqv89rgr2riYnVB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

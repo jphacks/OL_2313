@@ -1,0 +1,45 @@
+/* UnityContent.css */
+.home-logo{
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;     
+}
+
+@media (max-width: 480px) { /* スマホサイズ */
+ .home-logo{
+    width: 100%;
+    height: 200px;
+ }
+}
+
+.home-logo2{
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+@media (max-width: 480px) { /* スマホサイズ */
+    .home-logo2{
+       width: 100%;
+       height: 130px;
+       margin-top: 200px;
+    }
+   }
+
+.button2 {
+    margin-left: 100px;
+    color: #24f180;
+    background-color: #ffffff;
+    border: 1px solid #24f17d;
+}
+
+@media (max-width: 480px) { /* スマホサイズ */
+    .button2 {
+        margin-left: 100px;
+        color: #24f180;
+        background-color: #ffffff;
+        border: 1px solid #24f17d;
+    }
+   }

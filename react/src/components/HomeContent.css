@@ -1,0 +1,60 @@
+.home-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 60px;
+  padding: 80px 16px; /* 両側の余白を追加 */
+}
+
+.post {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left; /* 投稿の内容を中央揃えに */
+  
+}
+
+.post-image {
+  width: 100%;  /* コンテナの幅に合わせて幅を100%に設定 */
+  height: 300px; /* 画像の高さを300pxに設定 */
+  object-fit: cover; /* 画像がコンテナのサイズに合わせてトリミングされ、指定された高さと幅にフィットするように */
+  display: block; /* 余白をなくすため */
+}
+
+.post-details {
+  padding: 8px;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px; /* タグの上に余白を追加 */
+}
+
+.tag {
+  background-color: #f8f8f8;
+  color: rgb(223, 178, 1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem; /* タグの文字サイズを少し小さく */
+}
+
+
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) { /* タブレットサイズ以下 */
+  .home-content {
+    grid-template-columns: repeat(2, 1fr); /* 2カラムレイアウトに */
+  }
+}
+
+@media (max-width: 480px) { /* スマホサイズ */
+  .home-content {
+    grid-template-columns: 1fr; /* 1カラムレイアウトに */
+  }
+
+  .post-image {
+    max-height: 200px; /* 画像の高さを制限 */
+  }
+}
