@@ -1,5 +1,5 @@
 /* UnityContent.css */
-.home-logo{
+.home-logo {
     display: block;
     width: 100%;
     height: 500px;
@@ -7,13 +7,13 @@
 }
 
 @media (max-width: 480px) { /* スマホサイズ */
- .home-logo{
-    width: 100%;
-    height: 200px;
- }
+ .home-logo {
+        width: 100%;
+        height: 200px;
+    }
 }
 
-.home-logo2{
+.home-logo2 {
     display: block;
     width: 100%;
     height: 300px;
@@ -21,12 +21,12 @@
 }
 
 @media (max-width: 480px) { /* スマホサイズ */
-    .home-logo2{
+    .home-logo2 {
        width: 100%;
        height: 130px;
        margin-top: 200px;
     }
-   }
+}
 
 .button2 {
     margin-left: 100px;
@@ -42,4 +42,5 @@
         background-color: #ffffff;
         border: 1px solid #24f17d;
     }
-   }
+}
+   
