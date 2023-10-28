@@ -58,3 +58,23 @@
     max-height: 200px; /* 画像の高さを制限 */
   }
 }
+
+button {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 300px;
+  padding: 9px 25px;
+  color: #f15a24;
+  font-weight: bold;
+  letter-spacing: 0.5pt;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid #f15a24;
+  border-radius: 8px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+}
