@@ -59,15 +59,16 @@
   height: auto;
 }
 
-/* button { 
+button { 
   padding: 10px 15px;
-  border: none;
+  border: solid #ff9100;
   border-radius: 5px;
-  background-color: #3897f0;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #ff9100;
   cursor: pointer;
   transition: background-color 0.2s ease;
-} */
+  width: 40%;
+}
 
 button:hover {
   background-color: #ff9100;
