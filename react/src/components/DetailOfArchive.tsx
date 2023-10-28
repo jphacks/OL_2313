@@ -4,7 +4,11 @@ import { db } from "../firebase";
 import { doc, getDoc } from 'firebase/firestore';
 
 const DetailOfArchive: React.FC = () => {
-  const { postId } = useParams();
+  interface RouteParams {
+    postId: string;
+  }
+
+  const { postId } = useParams<RouteParams>();
   const [detailData, setDetailData] = useState<any>(null);
 
   const fetchDetailData = async (postId: string | undefined) => {
@@ -33,8 +37,10 @@ const DetailOfArchive: React.FC = () => {
 
   return (
     <div>
+      aaaaaaaa
       {detailData && (
         <div>
+          <h1>ああああ</h1>
           <img src={detailData.imageUrl} alt={detailData.title} className="post-image" />
           <p>{detailData.likes}</p>
           <p>#{detailData.tags}</p>
