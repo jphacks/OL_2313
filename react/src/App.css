@@ -12,22 +12,6 @@ form {
   margin: 0 auto;
 }
 
-/* input {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  background-image: none;
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  border-radius: 8px;
-  color: inherit;
-  font-family: inherit;
-  font-size: 1em;
-  padding: 0.4em 0.8em;
-  margin: 5px auto;
-  border-radius: 4px;
-} */
-
 @media (max-width: 768px) { /* タブレットサイズ以下 */
   input{
     margin: 5px 10px;
@@ -112,3 +96,4 @@ li {
   border: none;
   background: none;
 }
+

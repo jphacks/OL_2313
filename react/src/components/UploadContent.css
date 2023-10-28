@@ -45,16 +45,6 @@
   height: auto;
 }
 
-button { 
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #3897f0;
-  color: #ffffff;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
 button:hover {
   background-color: #357abD;
 }
