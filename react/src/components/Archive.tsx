@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { getDocs, collection, getDoc, updateDoc, doc, Timestamp, Query, query, orderBy } from "firebase/firestore";
 import DetailOfArchive from "./DetailOfArchive";
+import { Link, useLocation } from "react-router-dom";
 
 interface Post {
   id?: string;
@@ -28,7 +29,13 @@ const Archive: React.FC = () =>{
 
   return (
     <div className="App">
-      aaaa
+      <div className="posts-container">
+        {posts.map((post) => (
+          <Link to={`/DetailOfArchive?id=${post.id}`}>
+            <img key={post.id} src={post.imageUrl} alt={post.title} className="post-image" />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
