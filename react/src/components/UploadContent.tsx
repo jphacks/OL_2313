@@ -11,6 +11,8 @@ const UploadContent: React.FC = () => {
   const [resipe, setResipe] = useState("");
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
+  const [recipeIntroduction, setRecipeIntroduction] = useState("");
+  const [recipeBackground, setRecipeBackground] = useState("");
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files![0];
@@ -40,12 +42,16 @@ const UploadContent: React.FC = () => {
         imageUrl: downloadURL,
         likes: 0,
         uploadedAt: now, // タイムスタンプをデータベースに保存
+        recipeIntroduction: recipeIntroduction,
+        recipeBackground: recipeBackground,
       });
       setTitle("");
       setTags("");
       setResipe("");
       setImage(null);
       setImagePreview("");
+      setRecipeIntroduction("");
+      setRecipeBackground("");
     }
   };
 
@@ -84,6 +90,18 @@ const UploadContent: React.FC = () => {
           placeholder="レシピ"
           value={resipe}
           onChange={e => setResipe(e.target.value)}
+        />
+          <input
+          type="sentence"
+          placeholder="レシピの紹介"
+          value={recipeIntroduction}
+          onChange={(e) => setRecipeIntroduction(e.target.value)}
+        />
+        <input 
+          type="sentence"
+          placeholder="レシピの生い立ち"
+          value={recipeBackground}
+          onChange={(e) => setRecipeBackground(e.target.value)}
         />
         <button onClick={handleUpload}>アップロード</button>
       </div>
