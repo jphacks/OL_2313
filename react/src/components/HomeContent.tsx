@@ -13,6 +13,7 @@ import {
 } from "firebase/firestore";
 import "./HomeContent.css";
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Link, useLocation } from "react-router-dom";
 
 interface Post {
   id?: string;
@@ -96,7 +97,7 @@ const HomeContent: React.FC = () => {
         // タブ切り替えコンテンツ
         posts.map((post, index) => (
           <div key={index} className="post">
-            <img src={post.imageUrl} alt={post.title} className="post-image" />
+            <Link to={`/DetailOfPost?id=${post.id}`}><img src={post.imageUrl} alt={post.title} className="post-image" /></Link>
             <div className="post-details">
               <h3>{post.title}</h3>
               <button  className="text-button2" onClick={() => handleLike(post.id!)}><FavoriteIcon style={{marginRight: 8}}/> {post.likes}</button>
