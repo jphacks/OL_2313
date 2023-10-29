@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px; /* ヘッダーの高さ分だけ調整 */
+  }
+  
+  textarea {
+    margin-bottom: 20px;
+  }
