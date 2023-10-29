@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class NamingBox : MonoBehaviour
 {
-    public TextMeshProUGUI CharactorName; 
-    TextMeshProUGUI inputField;
-    public void OnClick()
+    public Image Dialog;
+    public void Start()
     {
-        inputField = this.GetComponentInChildren<TextMeshProUGUI>();
-        Debug.Log(inputField.text);
-        CharactorName.text=inputField.text;
-        CharactorName.color = new Color(233.0f, 203.0f, 177.0f, 255.0f);
+        Dialog.transform.DOScale(new Vector2(0.0f, 0.0f), 0.01f);
+    }
+    public void OpenDialog()
+    {
+        Dialog.transform.DOScale(new Vector2(1.0f, 1.0f), 0.75f);
+    }
+    public void OnClick() {
+        Dialog.transform.DOScale(new Vector2(0.0f, 0.0f), 0f);
     }
 
 }
