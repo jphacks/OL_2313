@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   return (
     <div className="header-container">
       <img src={process.env.PUBLIC_URL + '/ismet_.png'} alt="Logo" className="header-logo" />
-      <Link to="/About" className="navigation-link">About</Link> 
+      <Link to="/About" className="navigation-link">Chat</Link> 
       
       {/* その他のヘッダーコンポーネントの内容 */}
     </div>
