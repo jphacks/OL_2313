@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const API_URL = 'https://api.openai.com/v1/';
 const MODEL = 'gpt-3.5-turbo';
-const API_KEY = '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';
+const API_KEY = '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';
 
 export const chat = async (message: string): Promise<string | null> => {
   try {
