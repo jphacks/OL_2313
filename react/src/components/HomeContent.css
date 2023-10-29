@@ -40,6 +40,23 @@
   font-size: 0.8rem; /* タグの文字サイズを少し小さく */
 }
 
+.archive-inner-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.archive-image-content {
+  width: calc(100% / 3);
+  height: calc(811px / 8);
+}
+
+.archive-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 
 
 /* レスポンシブ対応 */

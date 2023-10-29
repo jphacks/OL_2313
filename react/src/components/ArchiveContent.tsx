@@ -13,8 +13,8 @@ function App() {
   return (
    <div className='archive-content'>
     <div>
-      <button onClick={() => changeComponent('Archive')}>料理アーカイブ</button>
-      <button onClick={() => changeComponent('Myrecipe')}>投稿レシピ</button>
+      <button onClick={() => changeComponent('Archive')} className={activeComponent === 'Archive' ? 'active-button' : 'non-Active-button'}>料理アーカイブ</button>
+      <button onClick={() => changeComponent('Myrecipe')} className={activeComponent === 'Myrecipe' ? 'active-button' : 'non-Active-button'}>投稿レシピ</button>
 
       {activeComponent === 'Archive' && <Archive />}
       {activeComponent === 'Myrecipe' && <Myrecipe />}

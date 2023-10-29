@@ -29,11 +29,13 @@ const Archive: React.FC = () =>{
 
   return (
     <div className="App">
-      <div className="posts-container">
+      <div className="archive-inner-content">
         {posts.map((post) => (
-          <Link to={`/DetailOfArchive?id=${post.id}`}>
-            <img key={post.id} src={post.imageUrl} alt={post.title} className="post-image" />
-          </Link>
+          <div className="archive-image-content">
+            <Link to={`/DetailOfArchive?id=${post.id}`}>
+              <img key={post.id} src={post.imageUrl} alt={post.title} className="archive-image" />
+            </Link>
+          </div>
         ))}
       </div>
     </div>
