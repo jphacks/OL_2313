@@ -1,56 +1,35 @@
-# Getting Started with Create React App
+# ismet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 製品概要
 
-### `npm i`
+### 背景（開発のきっかけ、　課題等）
 
-クローンしたらターミナルでこのコマンド実行してね。
-モジュールないと実行できないからね。
+このシステムを開発しようとしたきっかけとして、一人暮らしの大学生が自炊をあまりしていないところに注目した。
 
-## `npm install @mui/icons-material`
+ひとり暮らしで自炊をしても「一緒に食べる人がいない」「面倒臭い」という理由からあまり自炊してないことがわかったため、
+「自炊をする動機付け」としてアプリを使用してもらうことがこの開発を始めたきっかけだ。
 
-ターミナルで同じく実行してね。
-マテリアルアイコンのダウンロードコードです。
+### 機能
 
-## Available Scripts
+・画像投稿・レシピ投稿・献立の自動生成
+  ・自作のレシピを投稿することができる
+  ・投稿された既存のレシピを見て作った料理の写真を投稿することもできる
+  ・食材や調味料をテキストフィールドに入力することでレシピの提案を生成できる
 
-In the project directory, you can run:
+・Reactからfirebaseに画像データ＆レシピデータを出力
 
-### `npm start`
+・firebaseで画像データ＆レシピデータを保存
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+・unityでfirebaseから画像データを取得する
+  ・取得した画像データを餌として、モンスターを育てることができる
+    ・モンスターがある程度まで育つと、進化する
+    ・進化した後は...
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+使っている言語や技術：React、Unity、Firebase, chatGPT
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 特長
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### 1. アプリとブラウザのやり取りをfirebaseで行っている
+#### 2. 食育・SDGsへのつながりをもつ
+#### 3. それぞれのキャラクターはAIによって作られ、唯一無二のものになる（予定）
