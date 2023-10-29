@@ -19,6 +19,17 @@
     height: 40px;
     width: auto;
 }
+/* Header.css の追加部分 */
+
+.navigation-link {
+    text-decoration: none;
+    color: black;
+    transition: color 0.2s;
+}
+
+.navigation-link:hover {
+    color: #007BFF; 
+}
   
   
   
