@@ -9,6 +9,7 @@ import ArchiveContent from './components/ArchiveContent';
 import Header from './components/Header';
 import UnityContent from './components/UnityContent';
 import DetailOfArchive from './components/DetailOfArchive';
+import DetailOfPost from './components/DetailOfPost';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -25,7 +26,8 @@ const App: React.FC = () => {
           <Route path="/Upload" component={UploadContent} />
           <Route path="/Archive" component={ArchiveContent} />
           <Route path="/Unity" component={UnityContent} />
-          <Route exact path="/DetailOfArchive" component={DetailOfArchive} />
+          <Route path="/DetailOfArchive" component={DetailOfArchive} />
+          <Route path="/DetailOfPost" component={DetailOfPost} /> 
           <Route render={() => <p>not found!.</p>} />
         </Switch>
         <TabBar onTabChange={handleTabChange} />
